@@ -32,7 +32,9 @@ gulp.task('scripts', function() {
 	return gulp.src([ // Берем все необходимые библиотеки
 		'node_modules/jquery/dist/jquery.min.js', // Берем jQuery
 		'node_modules/slick-carousel/slick/slick.min.js',
+		'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
 		'app/js/common.js'
+		
 		
 		])
 		.pipe(concat('libs.min.js')) // Собираем их в кучу в новом файле libs.min.js
@@ -84,6 +86,7 @@ gulp.task('build', ['clean', 'img', 'sass', 'scripts'], function() {
 
 });
 
+
 gulp.task('clear', function (callback) {
 	return cache.clearAll();
 });
@@ -94,4 +97,7 @@ gulp.task('watch', ['browser-sync', 'css-libs', 'scripts'], function() {
 	gulp.watch(['app/js/common.js', 'app/libs/**/*.js'], browserSync.reload);   // Наблюдение за JS файлами в папке js
 });
 
+// 
+
 gulp.task('default', ['watch']);
+
